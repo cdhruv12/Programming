@@ -1,0 +1,529 @@
+SQL> CREATE TABLE EMPLOYEE(EMPLOYEEID INT,LNAME CHAR(30),FNAME CHAR(30),POSITIONID INT,SUPERVISOR VARCHAR(30),HIREDATE DATE,SALARY NUMBER(10,4),COMISSION NUMBER(10,4),DEPTID INT);
+CREATE TABLE EMPLOYEE(EMPLOYEEID INT,LNAME CHAR(30),FNAME CHAR(30),POSITIONID INT,SUPERVISOR VARCHAR(30),HIREDATE DATE,SALARY NUMBER(10,4),COMISSION NUMBER(10,4),DEPTID INT)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> DROP TABLE EMPLOYEE;
+
+Table dropped.
+
+SQL> CREATE TABLE EMPLOYEE(EMPLOYEEID INT,LNAME CHAR(30),FNAME CHAR(30),POSITIONID INT,SUPERVISOR VARCHAR(30),HIREDATE DATE,SALARY NUMBER(10,4),COMISSION NUMBER(10,4),DEPTID INT);
+
+Table created.
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(38)
+ LNAME                                              CHAR(30)
+ FNAME                                              CHAR(30)
+ POSITIONID                                         NUMBER(38)
+ SUPERVISOR                                         VARCHAR2(30)
+ HIREDATE                                           DATE
+ SALARY                                             NUMBER(10,4)
+ COMISSION                                          NUMBER(10,4)
+ DEPTID                                             NUMBER(38)
+
+SQL> CREATE TABLE POSITION(POSITIONID INT,POSDESC VARCHAR(30));
+
+Table created.
+
+SQL> DESC POSITION;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ POSITIONID                                         NUMBER(38)
+ POSDESC                                            VARCHAR2(30)
+
+SQL> CREATE TABLE DEPT(DEPTID INT,DEPTNAME VARCHAR(30),LOCATION CHAR(30),EMPLOYEEID INT);
+
+Table created.
+
+SQL> DESC DEPT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTID                                             NUMBER(38)
+ DEPTNAME                                           VARCHAR2(30)
+ LOCATION                                           CHAR(30)
+ EMPLOYEEID                                         NUMBER(38)
+
+SQL> CREATE TABLE QUALIFICATION(QUALID INT,QUALDESC VARCHAR(30));
+
+Table created.
+
+SQL> DESC QUALIFICATION;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ QUALID                                             NUMBER(38)
+ QUALDESC                                           VARCHAR2(30)
+
+SQL> CREATE TABLE EMPLEVEL(LEVELNO INT,LOWSALARY NUMBER(10,4),HIGHSALARY NUMBER(10,4));
+
+Table created.
+
+SQL> DESC EMPLEVEL;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LEVELNO                                            NUMBER(38)
+ LOWSALARY                                          NUMBER(10,4)
+ HIGHSALARY                                         NUMBER(10,4)
+
+SQL> CREATE TABLE DEPENDENT(EMPLOYEEID INT,DEPENDENTID INT,DEPDOB DATE,RELATION VARCHAR(10));
+
+Table created.
+
+SQL> DESC DEPENDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(38)
+ DEPENDENTID                                        NUMBER(38)
+ DEPDOB                                             DATE
+ RELATION                                           VARCHAR2(10)
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',100,'JAKE','12-JAN-2021',19000,0,11,10001);
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',100,'JAKE','12-JAN-2021',19000,0,11,10001)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1)
+  2  ;
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000.90,0.0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHARMA','KARAN',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> ALTER TABLE EMPLOYEE MODIFY SUPERVISOR CHAR;
+
+Table altered.
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(38)
+ LNAME                                              CHAR(30)
+ FNAME                                              CHAR(30)
+ POSITIONID                                         NUMBER(38)
+ SUPERVISOR                                         CHAR(1)
+ HIREDATE                                           DATE
+ SALARY                                             NUMBER(10,4)
+ COMISSION                                          NUMBER(10,4)
+ DEPTID                                             NUMBER(38)
+
+SQL> ALTER TABLE EMPLOYEE MODIFY SUPERVISOR CHAR(10);
+
+Table altered.
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1);
+INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1,1)
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(38)
+ LNAME                                              CHAR(30)
+ FNAME                                              CHAR(30)
+ POSITIONID                                         NUMBER(38)
+ SUPERVISOR                                         CHAR(10)
+ HIREDATE                                           DATE
+ SALARY                                             NUMBER(10,4)
+ COMISSION                                          NUMBER(10,4)
+ DEPTID                                             NUMBER(38)
+
+SQL> INSERT INTO EMPLOYEE VALUES(1,'SHAMI','MD',1,'JAKE','12-JAN-2021',19000,0,1);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES(2,'GUPTA','SHARAN',2,'JAKE','14-MAY-2021',18000,0,2);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES(3,'ROY','ARUNDATI',3,'JHON','19-JUL-2021',12000,0,3);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES(3,'SAHU','SNEHAN',4,'JHON','12-JUL-2021',15000,0,4);
+
+1 row created.
+
+SQL> SELECT*FROM EMPLOYEE;
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         1 SHAMI                          MD                                    
+         1 JAKE       12-JAN-21      19000          0          1                
+                                                                                
+         2 GUPTA                          SHARAN                                
+         2 JAKE       14-MAY-21      18000          0          2                
+                                                                                
+         3 ROY                            ARUNDATI                              
+         3 JHON       19-JUL-21      12000          0          3                
+                                                                                
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         3 SAHU                           SNEHAN                                
+         4 JHON       12-JUL-21      15000          0          4                
+                                                                                
+
+SQL> INSERT INTO POSITION VALUES(2,'INTERN');
+
+1 row created.
+
+SQL> INSERT INTO POSITION VALUES(1,'INTERN');
+
+1 row created.
+
+SQL> INSERT INTO POSITION VALUES(3,'DESIGNER');
+
+1 row created.
+
+SQL> INSERT INTO POSITION VALUES(4,'WRITER');
+
+1 row created.
+
+SQL> SELECT*FROM POSITION;
+
+POSITIONID POSDESC                                                              
+---------- ------------------------------                                       
+         2 INTERN                                                               
+         1 INTERN                                                               
+         3 DESIGNER                                                             
+         4 WRITER                                                               
+
+SQL> INSERT INTO DEPT VALUES(1,'COMPUTERS','KOCHI',1);
+
+1 row created.
+
+SQL> INSERT INTO DEPT VALUES(2,'IT','JAIPUR',2);
+
+1 row created.
+
+SQL> INSERT INTO DEPT VALUES(3,'DESIGNER','BHUBANESHWAR',3);
+
+1 row created.
+
+SQL> INSERT INTO DEPT VALUES(4,'WRITER','DELHI',4);
+
+1 row created.
+
+SQL> SELECT*FROM DEPT;
+
+    DEPTID DEPTNAME                       LOCATION                              
+---------- ------------------------------ ------------------------------        
+EMPLOYEEID                                                                      
+----------                                                                      
+         1 COMPUTERS                      KOCHI                                 
+         1                                                                      
+                                                                                
+         2 IT                             JAIPUR                                
+         2                                                                      
+                                                                                
+         3 DESIGNER                       BHUBANESHWAR                          
+         3                                                                      
+                                                                                
+
+    DEPTID DEPTNAME                       LOCATION                              
+---------- ------------------------------ ------------------------------        
+EMPLOYEEID                                                                      
+----------                                                                      
+         4 WRITER                         DELHI                                 
+         4                                                                      
+                                                                                
+
+SQL> INSERT INTO QUALIFICATION VALUES(1,'BTECH');
+
+1 row created.
+
+SQL> INSERT INTO QUALIFICATION VALUES(2,'MTECH');
+
+1 row created.
+
+SQL> INSERT INTO QUALIFICATION VALUES(3,'BSC');
+
+1 row created.
+
+SQL> INSERT INTO QUALIFICATION VALUES(4,'MSC');
+
+1 row created.
+
+SQL> SELECT*FROM QUALIFICATION;
+
+    QUALID QUALDESC                                                             
+---------- ------------------------------                                       
+         1 BTECH                                                                
+         2 MTECH                                                                
+         3 BSC                                                                  
+         4 MSC                                                                  
+
+SQL> INSERT INTO EMPLEVEL VALUES(1,1000,100000);
+
+1 row created.
+
+SQL> INSERT INTO EMPLEVEL VALUES(2,1000,100000);
+
+1 row created.
+
+SQL> INSERT INTO EMPLEVEL VALUES(3,1000,100000);
+
+1 row created.
+
+SQL> INSERT INTO EMPLEVEL VALUES(4,1000,100000);
+
+1 row created.
+
+SQL> SELECT*FROM EMPLEVEL;
+
+   LEVELNO  LOWSALARY HIGHSALARY                                                
+---------- ---------- ----------                                                
+         1       1000     100000                                                
+         2       1000     100000                                                
+         3       1000     100000                                                
+         4       1000     100000                                                
+
+SQL> INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021);
+INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021)
+                                   *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021,'COLLEGUE');
+INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021,'COLLEGUE')
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> DESC DEPENDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(38)
+ DEPENDENTID                                        NUMBER(38)
+ DEPDOB                                             DATE
+ RELATION                                           VARCHAR2(10)
+
+SQL> ALTER DEPENDENT MODIFY RELATION CHAR(10);
+ALTER DEPENDENT MODIFY RELATION CHAR(10)
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command 
+
+
+SQL> ALTER TABLE DEPENDENT MODIFY RELATION CHAR(10);
+
+Table altered.
+
+SQL> INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021,'COLLEGUE');
+INSERT INTO EMPLEVEL VALUES(1,1,12-MAR-2021,'COLLEGUE')
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> INSERT INTO DEPENDENT VALUES(1,1,12-MAR-2021,'COLLEGUE');
+INSERT INTO DEPENDENT VALUES(1,1,12-MAR-2021,'COLLEGUE')
+                                    *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> INSERT INTO DEPENDENT VALUES(1,1,'12-MAR-2021','COLLEGUE');
+
+1 row created.
+
+SQL> INSERT INTO DEPENDENT VALUES(2,2,'11-APR-2021','COLLEGUE');
+
+1 row created.
+
+SQL> INSERT INTO DEPENDENT VALUES(3,3,'10-MAY-2021','COLLEGUE');
+
+1 row created.
+
+SQL> INSERT INTO DEPENDENT VALUES(4,4,'19-JUN-2021','COLLEGUE');
+
+1 row created.
+
+SQL> SELECT*FROM DEPENDENT;
+
+EMPLOYEEID DEPENDENTID DEPDOB    RELATION                                       
+---------- ----------- --------- ----------                                     
+         1           1 12-MAR-21 COLLEGUE                                       
+         2           2 11-APR-21 COLLEGUE                                       
+         3           3 10-MAY-21 COLLEGUE                                       
+         4           4 19-JUN-21 COLLEGUE                                       
+
+SQL> SELECT LNAME||', ||FNAME, SALARY FROM EMPLOYEE;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT LNAME||', '||FNAME, SALARY FROM EMPLOYEE;
+
+LNAME||','||FNAME                                                  SALARY       
+-------------------------------------------------------------- ----------       
+SHAMI                         , MD                                  19000       
+GUPTA                         , SHARAN                              18000       
+ROY                           , ARUNDATI                            12000       
+SAHU                          , SNEHAN                              15000       
+
+SQL> SELECT*FROM EMPLOYEE WHERE COMISSION=0;
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         1 SHAMI                          MD                                    
+         1 JAKE       12-JAN-21      19000          0          1                
+                                                                                
+         2 GUPTA                          SHARAN                                
+         2 JAKE       14-MAY-21      18000          0          2                
+                                                                                
+         3 ROY                            ARUNDATI                              
+         3 JHON       19-JUL-21      12000          0          3                
+                                                                                
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         3 SAHU                           SNEHAN                                
+         4 JHON       12-JUL-21      15000          0          4                
+                                                                                
+
+SQL> SELECT LOACTION FROM DEPT;
+SELECT LOACTION FROM DEPT
+       *
+ERROR at line 1:
+ORA-00904: "LOACTION": invalid identifier 
+
+
+SQL> SELECT LOCATION FROM DEPT;
+
+LOCATION                                                                        
+------------------------------                                                  
+KOCHI                                                                           
+JAIPUR                                                                          
+BHUBANESHWAR                                                                    
+DELHI                                                                           
+
+SQL> SELECT * FROM DEPT WHERE LOCATION='BHUBANESHWAR';
+
+    DEPTID DEPTNAME                       LOCATION                              
+---------- ------------------------------ ------------------------------        
+EMPLOYEEID                                                                      
+----------                                                                      
+         3 DESIGNER                       BHUBANESHWAR                          
+         3                                                                      
+                                                                                
+
+SQL> SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'S%' AND '%A';
+SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'S%' AND '%A'
+                                                      *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'S%' AND NAME LIKE '%A';
+SELECT NAME FROM EMPLOYEE WHERE NAME LIKE 'S%' AND NAME LIKE '%A'
+                                                   *
+ERROR at line 1:
+ORA-00904: "NAME": invalid identifier 
+
+
+SQL> SELECT NAME FROM EMPLOYEE WHERE FNAME LIKE 'S%' AND FNAME LIKE '%A';
+SELECT NAME FROM EMPLOYEE WHERE FNAME LIKE 'S%' AND FNAME LIKE '%A'
+       *
+ERROR at line 1:
+ORA-00904: "NAME": invalid identifier 
+
+
+SQL> SELECT * FROM EMPLOYEE WHERE FNAME LIKE 'S%' AND FNAME LIKE '%A';
+
+no rows selected
+
+SQL> SELECT*FROM EMPLOYEE WHERE TO_CHAR(HIREDATE,'YYYY')>TO_CHAR(SYSDATE,'YYYY')-5;
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         1 SHAMI                          MD                                    
+         1 JAKE       12-JAN-21      19000          0          1                
+                                                                                
+         2 GUPTA                          SHARAN                                
+         2 JAKE       14-MAY-21      18000          0          2                
+                                                                                
+         3 ROY                            ARUNDATI                              
+         3 JHON       19-JUL-21      12000          0          3                
+                                                                                
+
+EMPLOYEEID LNAME                          FNAME                                 
+---------- ------------------------------ ------------------------------        
+POSITIONID SUPERVISOR HIREDATE      SALARY  COMISSION     DEPTID                
+---------- ---------- --------- ---------- ---------- ----------                
+         3 SAHU                           SNEHAN                                
+         4 JHON       12-JUL-21      15000          0          4                
+                                                                                
+
+SQL> SPOOL OFF;

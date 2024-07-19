@@ -1,0 +1,19 @@
+{
+  "files.associations": {
+    "ostream": "cpp",
+    "stdlib.h": "c"
+  },
+  "java.project.sourcePaths": [
+    ".vscode/Java/9 - Basic Sorting Algorithim",
+    ".vscode/Java/8 - Arrays",
+    ".vscode/Java/7 - Patterns II - Advanced",
+    ".vscode/Java/6 - Functions and Methods",
+    ".vscode/Java/5 - Patterns",
+    ".vscode/Java/4 - Loops",
+    ".vscode/Java/3 - Conditional Statements",
+    ".vscode/Java/2 - Operators",
+    ".vscode/Java/1 - Variables and Data Types",
+    ".vscode/Java"
+  ],
+  "java.debug.settings.onBuildFailureProceed": true
+}

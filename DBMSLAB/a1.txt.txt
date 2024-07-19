@@ -1,0 +1,3 @@
+SQL> tree
+SP2-0042: unknown command "tree" - rest of line ignored.
+SQL> 

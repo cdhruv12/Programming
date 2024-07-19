@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS_Q3</title>
+  </head>
+  <body>
+    <div>
+      <h1>Travel Trip Form</h1>
+      <br />
+      <form action="form.php">
+        Enter Name: <input type="text" placeholder="Enter your Name" />
+        <br />
+        Gender:
+        <ul>
+          <input type="radio" name="male" />Male
+          <br />
+          <input type="radio" name="male" />Female
+        </ul>
+        <br />
+        Why do we take you with us :
+        <br />
+        <textarea
+          name="explain"
+          id="explain"
+          cols="30"
+          rows="10"
+          placeholder="explain "
+        ></textarea>
+        <br />
+        <select name="Ride" id="ride">
+          <option value="No-vehicle">Select your Ride</option>
+          <option value="Baleno">Baleno</option>
+          <option value="Verna">Verna</option>
+          <option value="Ciaz">Ciaz</option>
+          <option value="Kwid">Kwid</option>
+          <option value="Celario">Celario</option>
+        </select>
+        <br />
+        <input type="checkbox" name="checkbox" />Are you sure you wanna come
+        <br />
+        <input type="submit" name="submit" />
+      </form>
+    </div>
+  </body>
+</html>
