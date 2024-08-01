@@ -11,23 +11,9 @@ public class Search
             this.left=this.right=null;
         }
     }
-    public static Node insert(Node root,int val)
-    {
-        if(root==null)
-        {
-            root=new Node(val);
-            return root;
-        }
-        if(root.data>val)
-        {
-            root.left=insert(root.left,val);
-        }
-        else
-        {
-            root.right=insert(root.right,val);
-        }
-        return root;
-    }
+    Exception in thread "main" java.lang.NullPointerException: Cannot read field "data" because "<parameter1>" is null  
+        at Delete.delete(Delete.java:16)
+        at Delete.main(Delete.java:71)
     public static void inOrder(Node root)
     {
         if(root==null)
